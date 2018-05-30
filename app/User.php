@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Post;
+use App\Comment;
 
 class User extends Authenticatable
 {
@@ -32,6 +34,11 @@ class User extends Authenticatable
     }
 
     public function posts() {
-      return $this->hasMany('App\Post');
+      return $this->hasMany(Post::class);
+    }
+    
+    public function comments()
+    {
+      return $this->hasMany(Comment::class);
     }
 }
