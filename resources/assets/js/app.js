@@ -15,8 +15,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
-});
+// Comment out this global call of Vue; because we will use Vue page by page bases.
+//Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//
+//const app = new Vue({
+//    el: '#app'
+//});
