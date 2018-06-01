@@ -14,13 +14,19 @@
       {{ $post->content }}
     </p>
     <hr />
-
-    <h3>Comments:</h3>
-    <div style="margin-bottom:50px;">
-      <textarea class="form-control" rows="3" name="body" placeholder="Leave a comment" v-model='commentBox'></textarea>
-      <button class="btn btn-success" style="margin-top:10px" v-on:click.prevent="postComment">Save Comment</button>
+    @auth
+        <h3>Comments:</h3>
+        <div style="margin-bottom:50px;">
+          <textarea class="form-control" rows="3" name="body" placeholder="Leave a comment" v-model='commentBox'></textarea>
+          <button class="btn btn-success" style="margin-top:10px" v-on:click.prevent="postComment">Save Comment</button>
+        </div>
+    @endauth
+    @guest
+    <div>
+        <h4>You must be logged in to submit a comment</h4>
+        <a href="/login">Login Now &gt;&gt;</a>
     </div>
-
+    @endguest
 
     <div class="media" style="margin-top:20px;" v-for="comment in comments">
       <div class="media-left">
