@@ -19,6 +19,10 @@ class CommentController extends Controller
          ]);
          
          $comment = Comment::where('id', $comment->id)->with('user')->first();
+         
+//         event(new \App\Events\NewComment($comment));
+        broadcast(new \App\Events\NewComment($comment))->toOthers();
+         
          return $comment->toJson();
     }
 }
