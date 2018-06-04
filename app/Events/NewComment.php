@@ -35,7 +35,7 @@ class NewComment implements ShouldBroadcastNow // ShouldBroadcastNow => no queue
     public function broadcastOn()
     {
         $post_id = $this->comment->post->id;
-        return new Channel('post.'.$post_id);
+        return new PrivateChannel('post.'.$post_id);
     }
     
     /**
